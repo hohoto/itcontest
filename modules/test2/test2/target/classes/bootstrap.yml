@@ -1,8 +1,10 @@
 server:
-  port: 8982
+
+  port: 8983
 
 # 服务注册
 eureka:
+
   # 实例设置
   instance:
     # 实例主机名称
@@ -13,26 +15,25 @@ eureka:
   # 客户端设置
   client:
     # 注册中心地址（集群时指定另外一个注册中心地址）
-    serviceUrl:
-      defaultZone: http://localhost:8970/eureka/
+    serviceUrl.defaultZone: http://127.0.0.1:8970/eureka/
 
 spring:
-
+  
   # 应用程序名称
   application:
-    name: itbs-cloud-module-test1
+    name: itbs-cloud-module-test2
 
   # 当前环境名称
   profiles:
     active: default
-
+    
   # 分布式配置中心
   cloud:
     config:
       discovery:
         enabled: true
         serviceId: itbs-cloud-config
-
+    
     # Consul 服务发现
     consul:
       host: 127.0.0.1
@@ -40,18 +41,12 @@ spring:
       discovery:
         hostname: 127.0.0.1
         preferIpAddress: false
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8
-    username: root
-    password: 123456
+
+  # 打印横幅
+  main:
+    bannerMode: "off"
+    
 # 日志配置
 logging:
   config: classpath:logback-spring.xml
-
-
-mybatis:
-  # mybatis接口文件位置
-  mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.itbs.entity
-
+  

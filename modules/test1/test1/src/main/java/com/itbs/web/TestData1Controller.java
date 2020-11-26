@@ -5,6 +5,7 @@ import com.itbs.service.TestDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,6 +19,12 @@ public class TestData1Controller{
 	public TestData getById(String id){
 		TestData testData = testDataService.getById(id);
 		return testData;
+	}
+
+	@RequestMapping(value = "fbtest")
+	public int fbtest(){
+		int result = 0;
+		return result;
 	}
 
 }
