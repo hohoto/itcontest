@@ -6,11 +6,7 @@ import com.itbs.entity.TestData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * @Description:
- * @CreateTime: 2019-08-14 15:53
- * @Author: itbs
- */
+
 @RestController
 public class TestDataApi implements TestDataServiceClient{
 

@@ -6,11 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * @Description:
- * @CreateTime: 2019-08-20 09:43
- * @Author: itbs
- */
+
 @RestController
 @RequestMapping("test2/testData")
 public class Test2DataController {
