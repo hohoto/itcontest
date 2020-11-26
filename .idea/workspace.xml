@@ -106,7 +106,7 @@
       <updated>1606395334415</updated>
       <workItem from="1606395336672" duration="738000" />
       <workItem from="1606396496765" duration="447000" />
-      <workItem from="1606397117886" duration="4407000" />
+      <workItem from="1606397117886" duration="6260000" />
     </task>
     <servers />
   </component>
@@ -154,9 +154,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="540" y="263" key="IDE.errors.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606404080177" />
+    <state x="763" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606408535615">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="763" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1606408535615" />
     <state x="938" y="224" width="678" height="660" key="find.popup" timestamp="1606405656086">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="938" y="224" width="678" height="660" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606405656086" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1606408710971">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606408710971" />
   </component>
 </project>
