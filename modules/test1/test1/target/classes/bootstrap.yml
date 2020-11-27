@@ -53,5 +53,5 @@ logging:
 mybatis:
   # mybatis接口文件位置
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.itbs.demo.dao.domain
+  type-aliases-package: com.itbs.entity
 

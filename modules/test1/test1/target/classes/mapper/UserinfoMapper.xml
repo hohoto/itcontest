@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itbs.persistence.mapper.UserinfoMapper">
+	<resultMap type="com.itbs.persistence.entity.Userinfo" id="Userinfo">
+		<result property="id" column="ID" />
+		<result property="username" column="USERNAME" />
+		<result property="password" column="PASSWORD" />
+		<result property="userstatus" column="USERSTATUS" />
+		<result property="companyname" column="COMPANYNAME" />
+		<result property="department" column="DEPARTMENT" />
+		<result property="jobtitle" column="JOBTITLE" />
+		<result property="telphone" column="TELPHONE" />
+				
+	</resultMap>
+	
+	
+	<select id="findUserinfos" resultMap="Userinfo" parameterType="com.itbs.persistence.entity.Userinfo">
+		select  ID
+				,USERNAME
+				,PASSWORD
+				,USERSTATUS
+				,COMPANYNAME
+				,DEPARTMENT
+				,JOBTITLE
+				,TELPHONE
+						
+		   from userinfo
+		<where>
+			<trim prefixOverrides="and" prefix="">
+			<if test="id!=null">and  ID=#{id}</if>
+			<if test="username!=null">and  USERNAME=#{username}</if>
+			<if test="password!=null">and  PASSWORD=#{password}</if>
+			<if test="userstatus!=null">and  USERSTATUS=#{userstatus}</if>
+			<if test="companyname!=null">and  COMPANYNAME=#{companyname}</if>
+			<if test="department!=null">and  DEPARTMENT=#{department}</if>
+			<if test="jobtitle!=null">and  JOBTITLE=#{jobtitle}</if>
+			<if test="telphone!=null">and  TELPHONE=#{telphone}</if>
+						
+			</trim>
+		</where>
+	</select>
+	
+	
+	<select id="loadUserinfo" resultMap="Userinfo" parameterType="com.itbs.persistence.entity.Userinfo">
+		select *
+		 from userinfo
+		<where>
+			<trim prefixOverrides="and" prefix="">
+			<if test="id!=null">and  ID=#{id}</if>
+			<if test="username!=null">and  USERNAME=#{username}</if>
+			<if test="password!=null">and  PASSWORD=#{password}</if>
+			<if test="userstatus!=null">and  USERSTATUS=#{userstatus}</if>
+			<if test="companyname!=null">and  COMPANYNAME=#{companyname}</if>
+			<if test="department!=null">and  DEPARTMENT=#{department}</if>
+			<if test="jobtitle!=null">and  JOBTITLE=#{jobtitle}</if>
+			<if test="telphone!=null">and  TELPHONE=#{telphone}</if>
+						
+			</trim>
+		</where>
+	</select>
+	
+	
+	<select id="getUserinfoByKey" resultMap="Userinfo">
+		select *
+		  from userinfo
+		where
+			 ID=#{id}
+						    
+	</select>
+	
+	
+	
+	<select id="countUserinfos" resultType="int" parameterType="com.itbs.persistence.entity.Userinfo">
+		select count(*)
+	      from userinfo 
+		 <where>
+		 <trim prefixOverrides="and" prefix="">
+			<if test="id!=null">and  ID=#{id}</if>
+			<if test="username!=null">and  USERNAME=#{username}</if>
+			<if test="password!=null">and  PASSWORD=#{password}</if>
+			<if test="userstatus!=null">and  USERSTATUS=#{userstatus}</if>
+			<if test="companyname!=null">and  COMPANYNAME=#{companyname}</if>
+			<if test="department!=null">and  DEPARTMENT=#{department}</if>
+			<if test="jobtitle!=null">and  JOBTITLE=#{jobtitle}</if>
+			<if test="telphone!=null">and  TELPHONE=#{telphone}</if>
+						
+	    </trim>
+		</where>
+	</select>
+	
+	
+	<update id="updateUserinfoByKey" parameterType="com.itbs.persistence.entity.Userinfo">
+		update userinfo 		
+		<set>
+		<trim suffixOverrides="," suffix="">
+								
+			<if test="username!=null"> USERNAME=#{username}, </if>					
+			<if test="password!=null"> PASSWORD=#{password}, </if>					
+			<if test="userstatus!=null"> USERSTATUS=#{userstatus}, </if>					
+			<if test="companyname!=null"> COMPANYNAME=#{companyname}, </if>					
+			<if test="department!=null"> DEPARTMENT=#{department}, </if>					
+			<if test="jobtitle!=null"> JOBTITLE=#{jobtitle}, </if>					
+			<if test="telphone!=null"> TELPHONE=#{telphone}, </if>		 
+	   </trim>
+	   </set>		
+		<where>
+			 ID=#{id} 	
+		</where>
+	</update>	
+	
+	
+	
+	<insert id="insertUserinfoModel" parameterType="com.itbs.persistence.entity.Userinfo">
+		insert  into userinfo
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+				<if test="id!=null"> ID, </if>
+				<if test="username!=null"> USERNAME, </if>
+				<if test="password!=null"> PASSWORD, </if>
+				<if test="userstatus!=null"> USERSTATUS, </if>
+				<if test="companyname!=null"> COMPANYNAME, </if>
+				<if test="department!=null"> DEPARTMENT, </if>
+				<if test="jobtitle!=null"> JOBTITLE, </if>
+				<if test="telphone!=null"> TELPHONE, </if>
+				
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+				<if test="id!=null"> #{id}, </if>
+				<if test="username!=null"> #{username}, </if>
+				<if test="password!=null"> #{password}, </if>
+				<if test="userstatus!=null"> #{userstatus}, </if>
+				<if test="companyname!=null"> #{companyname}, </if>
+				<if test="department!=null"> #{department}, </if>
+				<if test="jobtitle!=null"> #{jobtitle}, </if>
+				<if test="telphone!=null"> #{telphone}, </if>
+				
+		</trim>
+	</insert>
+	
+	
+	
+	<insert id="insertUserinfoMap" parameterType="com.itbs.persistence.entity.Userinfo">
+		insert  into userinfo
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+				<if test="ID!=null"> ID, </if>
+				<if test="USERNAME!=null"> USERNAME, </if>
+				<if test="PASSWORD!=null"> PASSWORD, </if>
+				<if test="USERSTATUS!=null"> USERSTATUS, </if>
+				<if test="COMPANYNAME!=null"> COMPANYNAME, </if>
+				<if test="DEPARTMENT!=null"> DEPARTMENT, </if>
+				<if test="JOBTITLE!=null"> JOBTITLE, </if>
+				<if test="TELPHONE!=null"> TELPHONE, </if>
+				
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+				<if test="ID!=null"> #{ID}, </if>
+				<if test="USERNAME!=null"> #{USERNAME}, </if>
+				<if test="PASSWORD!=null"> #{PASSWORD}, </if>
+				<if test="USERSTATUS!=null"> #{USERSTATUS}, </if>
+				<if test="COMPANYNAME!=null"> #{COMPANYNAME}, </if>
+				<if test="DEPARTMENT!=null"> #{DEPARTMENT}, </if>
+				<if test="JOBTITLE!=null"> #{JOBTITLE}, </if>
+				<if test="TELPHONE!=null"> #{TELPHONE}, </if>
+				
+		</trim>
+	</insert>
+	
+	
+	
+	<delete id="deleteUserinfo" parameterType="com.itbs.persistence.entity.Userinfo">
+		delete from userinfo
+		<where>
+		<trim prefixOverrides="and" prefix="">
+				<if test="id!=null"> and ID=#{id} </if>
+				<if test="username!=null"> and USERNAME=#{username} </if>
+				<if test="password!=null"> and PASSWORD=#{password} </if>
+				<if test="userstatus!=null"> and USERSTATUS=#{userstatus} </if>
+				<if test="companyname!=null"> and COMPANYNAME=#{companyname} </if>
+				<if test="department!=null"> and DEPARTMENT=#{department} </if>
+				<if test="jobtitle!=null"> and JOBTITLE=#{jobtitle} </if>
+				<if test="telphone!=null"> and TELPHONE=#{telphone} </if>
+				
+		</trim>
+		</where>
+	</delete>
+	
+	
+	
+	<delete id="deleteUserinfoByKey">
+		delete from userinfo
+		where ID=#{id}				
+	</delete>
+	
+	
+	
+	<insert id="insertUserinfoBatch" parameterType="java.util.List">
+		insert  into userinfo
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+				ID, 
+				USERNAME, 
+				PASSWORD, 
+				USERSTATUS, 
+				COMPANYNAME, 
+				DEPARTMENT, 
+				JOBTITLE, 
+				TELPHONE, 
+				
+		</trim>
+		values
+		<foreach collection="list" item="item" index="index" separator="," >  
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+                #{item.id},
+		        #{item.username},
+		        #{item.password},
+		        #{item.userstatus},
+		        #{item.companyname},
+		        #{item.department},
+		        #{item.jobtitle},
+		        #{item.telphone},
+				
+		</trim>
+    	</foreach>  
+	</insert>
+	
+</mapper>

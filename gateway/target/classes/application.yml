@@ -33,7 +33,7 @@ spring:
       discovery:
         healthCheckPath: ${server.servlet.context-path}/actuator/health
         healthCheckInterval: 15s
-      
+
     # 网关路由配置
     gateway:
       discovery:
@@ -58,7 +58,6 @@ spring:
           filters:
             - StripPrefix=1
 
-  
   # 应用程序名称
   application:
     name: itbs-cloud-gateway

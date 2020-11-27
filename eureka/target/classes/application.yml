@@ -34,6 +34,9 @@ eureka:
     serviceUrl.defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 
 spring:
+  main:
+    allow-bean-definition-overriding: true
+
   # 应用程序名称
   application:
     name: itbs-cloud-eureka
@@ -43,7 +46,7 @@ spring:
   # 关闭横幅
 #  main:
 #    bannerMode: "off"
-    
+
 # 日志配置
 logging:
   custom:

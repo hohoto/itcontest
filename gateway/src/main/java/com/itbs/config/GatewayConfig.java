@@ -7,9 +7,10 @@ import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilterChain;
 import reactor.core.publisher.Mono;
 
+
 @Configuration
 public class GatewayConfig {
-	
+
 	@Bean
 	public HiddenHttpMethodFilter hiddenHttpMethodFilter() {
 		return new HiddenHttpMethodFilter() {
@@ -19,5 +20,4 @@ public class GatewayConfig {
 			}
 		};
 	}
-
 }

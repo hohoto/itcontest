@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itbs.persistence.mapper.PictureinfoMapper">
+	<resultMap type="com.itbs.persistence.entity.Pictureinfo" id="Pictureinfo">
+		<result property="pictureid" column="PICTUREID" />
+		<result property="resourceid" column="RESOURCEID" />
+		<result property="picturestatus" column="PICTURESTATUS" />
+		<result property="pictureurl" column="PICTUREURL" />
+		<result property="createtime" column="CREATETIME" />
+		<result property="modifytime" column="MODIFYTIME" />
+		<result property="createperson" column="CREATEPERSON" />
+		<result property="modifyperson" column="MODIFYPERSON" />
+				
+	</resultMap>
+	
+	
+	<select id="findPictureinfos" resultMap="Pictureinfo" parameterType="com.itbs.persistence.entity.Pictureinfo">
+		select  PICTUREID
+				,RESOURCEID
+				,PICTURESTATUS
+				,PICTUREURL
+				,CREATETIME
+				,MODIFYTIME
+				,CREATEPERSON
+				,MODIFYPERSON
+						
+		   from pictureinfo
+		<where>
+			<trim prefixOverrides="and" prefix="">
+			<if test="pictureid!=null">and  PICTUREID=#{pictureid}</if>
+			<if test="resourceid!=null">and  RESOURCEID=#{resourceid}</if>
+			<if test="picturestatus!=null">and  PICTURESTATUS=#{picturestatus}</if>
+			<if test="pictureurl!=null">and  PICTUREURL=#{pictureurl}</if>
+			<if test="createtime!=null">and  CREATETIME=#{createtime}</if>
+			<if test="modifytime!=null">and  MODIFYTIME=#{modifytime}</if>
+			<if test="createperson!=null">and  CREATEPERSON=#{createperson}</if>
+			<if test="modifyperson!=null">and  MODIFYPERSON=#{modifyperson}</if>
+						
+			</trim>
+		</where>
+	</select>
+	
+	
+	<select id="loadPictureinfo" resultMap="Pictureinfo" parameterType="com.itbs.persistence.entity.Pictureinfo">
+		select *
+		 from pictureinfo
+		<where>
+			<trim prefixOverrides="and" prefix="">
+			<if test="pictureid!=null">and  PICTUREID=#{pictureid}</if>
+			<if test="resourceid!=null">and  RESOURCEID=#{resourceid}</if>
+			<if test="picturestatus!=null">and  PICTURESTATUS=#{picturestatus}</if>
+			<if test="pictureurl!=null">and  PICTUREURL=#{pictureurl}</if>
+			<if test="createtime!=null">and  CREATETIME=#{createtime}</if>
+			<if test="modifytime!=null">and  MODIFYTIME=#{modifytime}</if>
+			<if test="createperson!=null">and  CREATEPERSON=#{createperson}</if>
+			<if test="modifyperson!=null">and  MODIFYPERSON=#{modifyperson}</if>
+						
+			</trim>
+		</where>
+	</select>
+	
+	
+	<select id="getPictureinfoByKey" resultMap="Pictureinfo">
+		select *
+		  from pictureinfo
+		where
+			 PICTUREID=#{pictureid}
+						    
+	</select>
+	
+	
+	
+	<select id="countPictureinfos" resultType="int" parameterType="com.itbs.persistence.entity.Pictureinfo">
+		select count(*)
+	      from pictureinfo 
+		 <where>
+		 <trim prefixOverrides="and" prefix="">
+			<if test="pictureid!=null">and  PICTUREID=#{pictureid}</if>
+			<if test="resourceid!=null">and  RESOURCEID=#{resourceid}</if>
+			<if test="picturestatus!=null">and  PICTURESTATUS=#{picturestatus}</if>
+			<if test="pictureurl!=null">and  PICTUREURL=#{pictureurl}</if>
+			<if test="createtime!=null">and  CREATETIME=#{createtime}</if>
+			<if test="modifytime!=null">and  MODIFYTIME=#{modifytime}</if>
+			<if test="createperson!=null">and  CREATEPERSON=#{createperson}</if>
+			<if test="modifyperson!=null">and  MODIFYPERSON=#{modifyperson}</if>
+						
+	    </trim>
+		</where>
+	</select>
+	
+	
+	<update id="updatePictureinfoByKey" parameterType="com.itbs.persistence.entity.Pictureinfo">
+		update pictureinfo 		
+		<set>
+		<trim suffixOverrides="," suffix="">
+								
+			<if test="resourceid!=null"> RESOURCEID=#{resourceid}, </if>					
+			<if test="picturestatus!=null"> PICTURESTATUS=#{picturestatus}, </if>					
+			<if test="pictureurl!=null"> PICTUREURL=#{pictureurl}, </if>					
+			<if test="createtime!=null"> CREATETIME=#{createtime}, </if>					
+			<if test="modifytime!=null"> MODIFYTIME=#{modifytime}, </if>					
+			<if test="createperson!=null"> CREATEPERSON=#{createperson}, </if>					
+			<if test="modifyperson!=null"> MODIFYPERSON=#{modifyperson}, </if>		 
+	   </trim>
+	   </set>		
+		<where>
+			 PICTUREID=#{pictureid} 	
+		</where>
+	</update>	
+	
+	
+	
+	<insert id="insertPictureinfoModel" parameterType="com.itbs.persistence.entity.Pictureinfo">
+		insert  into pictureinfo
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+				<if test="pictureid!=null"> PICTUREID, </if>
+				<if test="resourceid!=null"> RESOURCEID, </if>
+				<if test="picturestatus!=null"> PICTURESTATUS, </if>
+				<if test="pictureurl!=null"> PICTUREURL, </if>
+				<if test="createtime!=null"> CREATETIME, </if>
+				<if test="modifytime!=null"> MODIFYTIME, </if>
+				<if test="createperson!=null"> CREATEPERSON, </if>
+				<if test="modifyperson!=null"> MODIFYPERSON, </if>
+				
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+				<if test="pictureid!=null"> #{pictureid}, </if>
+				<if test="resourceid!=null"> #{resourceid}, </if>
+				<if test="picturestatus!=null"> #{picturestatus}, </if>
+				<if test="pictureurl!=null"> #{pictureurl}, </if>
+				<if test="createtime!=null"> #{createtime}, </if>
+				<if test="modifytime!=null"> #{modifytime}, </if>
+				<if test="createperson!=null"> #{createperson}, </if>
+				<if test="modifyperson!=null"> #{modifyperson}, </if>
+				
+		</trim>
+	</insert>
+	
+	
+	
+	<insert id="insertPictureinfoMap" parameterType="com.itbs.persistence.entity.Pictureinfo">
+		insert  into pictureinfo
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+				<if test="PICTUREID!=null"> PICTUREID, </if>
+				<if test="RESOURCEID!=null"> RESOURCEID, </if>
+				<if test="PICTURESTATUS!=null"> PICTURESTATUS, </if>
+				<if test="PICTUREURL!=null"> PICTUREURL, </if>
+				<if test="CREATETIME!=null"> CREATETIME, </if>
+				<if test="MODIFYTIME!=null"> MODIFYTIME, </if>
+				<if test="CREATEPERSON!=null"> CREATEPERSON, </if>
+				<if test="MODIFYPERSON!=null"> MODIFYPERSON, </if>
+				
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+				<if test="PICTUREID!=null"> #{PICTUREID}, </if>
+				<if test="RESOURCEID!=null"> #{RESOURCEID}, </if>
+				<if test="PICTURESTATUS!=null"> #{PICTURESTATUS}, </if>
+				<if test="PICTUREURL!=null"> #{PICTUREURL}, </if>
+				<if test="CREATETIME!=null"> #{CREATETIME}, </if>
+				<if test="MODIFYTIME!=null"> #{MODIFYTIME}, </if>
+				<if test="CREATEPERSON!=null"> #{CREATEPERSON}, </if>
+				<if test="MODIFYPERSON!=null"> #{MODIFYPERSON}, </if>
+				
+		</trim>
+	</insert>
+	
+	
+	
+	<delete id="deletePictureinfo" parameterType="com.itbs.persistence.entity.Pictureinfo">
+		delete from pictureinfo
+		<where>
+		<trim prefixOverrides="and" prefix="">
+				<if test="pictureid!=null"> and PICTUREID=#{pictureid} </if>
+				<if test="resourceid!=null"> and RESOURCEID=#{resourceid} </if>
+				<if test="picturestatus!=null"> and PICTURESTATUS=#{picturestatus} </if>
+				<if test="pictureurl!=null"> and PICTUREURL=#{pictureurl} </if>
+				<if test="createtime!=null"> and CREATETIME=#{createtime} </if>
+				<if test="modifytime!=null"> and MODIFYTIME=#{modifytime} </if>
+				<if test="createperson!=null"> and CREATEPERSON=#{createperson} </if>
+				<if test="modifyperson!=null"> and MODIFYPERSON=#{modifyperson} </if>
+				
+		</trim>
+		</where>
+	</delete>
+	
+	
+	
+	<delete id="deletePictureinfoByKey">
+		delete from pictureinfo
+		where PICTUREID=#{pictureid}				
+	</delete>
+	
+	
+	
+	<insert id="insertPictureinfoBatch" parameterType="java.util.List">
+		insert  into pictureinfo
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+				PICTUREID, 
+				RESOURCEID, 
+				PICTURESTATUS, 
+				PICTUREURL, 
+				CREATETIME, 
+				MODIFYTIME, 
+				CREATEPERSON, 
+				MODIFYPERSON, 
+				
+		</trim>
+		values
+		<foreach collection="list" item="item" index="index" separator="," >  
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+                #{item.pictureid},
+		        #{item.resourceid},
+		        #{item.picturestatus},
+		        #{item.pictureurl},
+		        #{item.createtime},
+		        #{item.modifytime},
+		        #{item.createperson},
+		        #{item.modifyperson},
+				
+		</trim>
+    	</foreach>  
+	</insert>
+	
+</mapper>
