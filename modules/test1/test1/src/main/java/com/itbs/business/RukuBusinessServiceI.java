@@ -1,2 +1,7 @@
-package com.itbs.business.impl;public interface rukuBusinessServiceI {
+package com.itbs.business;
+
+import com.itbs.persistence.entity.Resourcemanage;
+
+public interface RukuBusinessServiceI {
+    int insertData(Resourcemanage resourcemanage);
 }
