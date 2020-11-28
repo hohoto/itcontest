@@ -12,6 +12,7 @@
 		<result property="department" column="DEPARTMENT" />
 		<result property="jobtitle" column="JOBTITLE" />
 		<result property="telphone" column="TELPHONE" />
+		<result property="realname" column="REALNAME" />
 				
 	</resultMap>
 	
@@ -25,6 +26,7 @@
 				,DEPARTMENT
 				,JOBTITLE
 				,TELPHONE
+				,REALNAME
 						
 		   from userinfo
 		<where>
@@ -37,6 +39,7 @@
 			<if test="department!=null">and  DEPARTMENT=#{department}</if>
 			<if test="jobtitle!=null">and  JOBTITLE=#{jobtitle}</if>
 			<if test="telphone!=null">and  TELPHONE=#{telphone}</if>
+			<if test="realname!=null">and  REALNAME=#{realname}</if>
 						
 			</trim>
 		</where>
@@ -56,6 +59,7 @@
 			<if test="department!=null">and  DEPARTMENT=#{department}</if>
 			<if test="jobtitle!=null">and  JOBTITLE=#{jobtitle}</if>
 			<if test="telphone!=null">and  TELPHONE=#{telphone}</if>
+			<if test="realname!=null">and  REALNAME=#{realname}</if>
 						
 			</trim>
 		</where>
@@ -85,6 +89,7 @@
 			<if test="department!=null">and  DEPARTMENT=#{department}</if>
 			<if test="jobtitle!=null">and  JOBTITLE=#{jobtitle}</if>
 			<if test="telphone!=null">and  TELPHONE=#{telphone}</if>
+			<if test="realname!=null">and  REALNAME=#{realname}</if>
 						
 	    </trim>
 		</where>
@@ -102,7 +107,8 @@
 			<if test="companyname!=null"> COMPANYNAME=#{companyname}, </if>					
 			<if test="department!=null"> DEPARTMENT=#{department}, </if>					
 			<if test="jobtitle!=null"> JOBTITLE=#{jobtitle}, </if>					
-			<if test="telphone!=null"> TELPHONE=#{telphone}, </if>		 
+			<if test="telphone!=null"> TELPHONE=#{telphone}, </if>					
+			<if test="realname!=null"> REALNAME=#{realname}, </if>		 
 	   </trim>
 	   </set>		
 		<where>
@@ -123,6 +129,7 @@
 				<if test="department!=null"> DEPARTMENT, </if>
 				<if test="jobtitle!=null"> JOBTITLE, </if>
 				<if test="telphone!=null"> TELPHONE, </if>
+				<if test="realname!=null"> REALNAME, </if>
 				
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -134,6 +141,7 @@
 				<if test="department!=null"> #{department}, </if>
 				<if test="jobtitle!=null"> #{jobtitle}, </if>
 				<if test="telphone!=null"> #{telphone}, </if>
+				<if test="realname!=null"> #{realname}, </if>
 				
 		</trim>
 	</insert>
@@ -151,6 +159,7 @@
 				<if test="DEPARTMENT!=null"> DEPARTMENT, </if>
 				<if test="JOBTITLE!=null"> JOBTITLE, </if>
 				<if test="TELPHONE!=null"> TELPHONE, </if>
+				<if test="REALNAME!=null"> REALNAME, </if>
 				
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -162,6 +171,7 @@
 				<if test="DEPARTMENT!=null"> #{DEPARTMENT}, </if>
 				<if test="JOBTITLE!=null"> #{JOBTITLE}, </if>
 				<if test="TELPHONE!=null"> #{TELPHONE}, </if>
+				<if test="REALNAME!=null"> #{REALNAME}, </if>
 				
 		</trim>
 	</insert>
@@ -180,6 +190,7 @@
 				<if test="department!=null"> and DEPARTMENT=#{department} </if>
 				<if test="jobtitle!=null"> and JOBTITLE=#{jobtitle} </if>
 				<if test="telphone!=null"> and TELPHONE=#{telphone} </if>
+				<if test="realname!=null"> and REALNAME=#{realname} </if>
 				
 		</trim>
 		</where>
@@ -205,6 +216,7 @@
 				DEPARTMENT, 
 				JOBTITLE, 
 				TELPHONE, 
+				REALNAME, 
 				
 		</trim>
 		values
@@ -218,6 +230,7 @@
 		        #{item.department},
 		        #{item.jobtitle},
 		        #{item.telphone},
+		        #{item.realname},
 				
 		</trim>
     	</foreach>  

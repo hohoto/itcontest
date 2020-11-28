@@ -71,4 +71,11 @@ public class Userinfo implements Serializable {
 	@JsonProperty("TELPHONE")
 	private String telphone;
 	
+	
+	/**
+	*
+	*/
+	@JsonProperty("REALNAME")
+	private String realname;
+	
 	}
