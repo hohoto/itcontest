@@ -18,6 +18,21 @@ eureka:
 
 spring:
 
+  thymeleaf:
+
+    prefix: classpath:/templates/
+
+    suffix: .html
+
+    mode: HTML
+
+    encoding: UTF-8
+
+    cache: false
+
+    servlet:
+      content-type: text/html
+
   # 应用程序名称
   application:
     name: itbs-cloud-module-test1

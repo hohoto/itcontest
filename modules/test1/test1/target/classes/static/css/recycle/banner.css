@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .device {
+    width: 700px;
+    height: 440px;
+    /*padding: 30px 40px;*/
+    /*border-radius: 20px;*/
+    /*background: #111;*/
+    /*border: 3px solid white;*/
+    /*margin: 5px auto;*/
+    position: relative;
+    /*box-shadow: 0px 0px 5px #000;*/
+  }
+  
+  
+  .device .arrow-left,
+  .device .arrow-right{ display: none;}
+  
+  
+  .device:hover .arrow-left,
+  .device:hover .arrow-right{
+      display: block;
+      background: #000; 
+      padding: 5px;
+      position: absolute;
+      background-size: 17px 24px;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 10;
+      margin-top: -15px;
+      top: 50%;
+      width: 17px;
+      height: 30px;
+      }
+  .device:hover .arrow-left {
+   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
+    left: 10px;
+  
+   
+  }
+  .device:hover .arrow-right {
+   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
+    right: 10px;
+    
+   
+  }
+  .swiper-container {
+    height: 440px;
+    width: 700px;
+  }
+  .content-slide {
+    padding: 20px;
+    color: #fff;
+  }
+  .title {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+  .pagination {
+    position: absolute;
+    left: 0;
+    text-align: center;
+    bottom:10px;
+    width: 100%;
+    z-index: 9;
+  }
+  .swiper-pagination-switch {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background: #797979;
+    /*box-shadow: 0px 1px 2px #555 inset;*/
+    margin: 0 5px;
+    cursor: pointer;
+    /*opacity: .2;*/
+  }
+  .swiper-active-switch {
+    background: #E82D28;
+  }
+  .swiper-slide{float: left;display: block;}
+  
+  
+  /*@media screen and (max-width: 1200px){*/
+  /*	.device { width: 500px; height: 440px; position: relative;}*/
+  /*	.swiper-container { height: 440px;width: 500px;}*/
+  /*}*/
+  /*@media screen and (max-width: 1024px){*/
+  /*	.device { width: 530px; height: 440px; position: relative;}*/
+  /*	.swiper-container { height: 440px;width: 530px;}*/
+  /*}*/
