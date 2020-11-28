@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itbs.persistence.mapper.UselogMapper">
+	<resultMap type="com.itbs.persistence.entity.Uselog" id="Uselog">
+		<result property="id" column="ID" />
+		<result property="resourceid" column="RESOURCEID" />
+		<result property="usedate" column="USEDATE" />
+		<result property="statuschange" column="STATUSCHANGE" />
+		<result property="changemsg" column="CHANGEMSG" />
+				
+	</resultMap>
+	
+	
+	<select id="findUselogs" resultMap="Uselog" parameterType="com.itbs.persistence.entity.Uselog">
+		select  ID
+				,RESOURCEID
+				,USEDATE
+				,STATUSCHANGE
+				,CHANGEMSG
+						
+		   from uselog
+		<where>
+			<trim prefixOverrides="and" prefix="">
+			<if test="id!=null">and  ID=#{id}</if>
+			<if test="resourceid!=null">and  RESOURCEID=#{resourceid}</if>
+			<if test="usedate!=null">and  USEDATE=#{usedate}</if>
+			<if test="statuschange!=null">and  STATUSCHANGE=#{statuschange}</if>
+			<if test="changemsg!=null">and  CHANGEMSG=#{changemsg}</if>
+						
+			</trim>
+		</where>
+	</select>
+	
+	
+	<select id="loadUselog" resultMap="Uselog" parameterType="com.itbs.persistence.entity.Uselog">
+		select *
+		 from uselog
+		<where>
+			<trim prefixOverrides="and" prefix="">
+			<if test="id!=null">and  ID=#{id}</if>
+			<if test="resourceid!=null">and  RESOURCEID=#{resourceid}</if>
+			<if test="usedate!=null">and  USEDATE=#{usedate}</if>
+			<if test="statuschange!=null">and  STATUSCHANGE=#{statuschange}</if>
+			<if test="changemsg!=null">and  CHANGEMSG=#{changemsg}</if>
+						
+			</trim>
+		</where>
+	</select>
+	
+	
+	<select id="getUselogByKey" resultMap="Uselog">
+		select *
+		  from uselog
+		where
+			 ID=#{id}
+						    
+	</select>
+	
+	
+	
+	<select id="countUselogs" resultType="int" parameterType="com.itbs.persistence.entity.Uselog">
+		select count(*)
+	      from uselog 
+		 <where>
+		 <trim prefixOverrides="and" prefix="">
+			<if test="id!=null">and  ID=#{id}</if>
+			<if test="resourceid!=null">and  RESOURCEID=#{resourceid}</if>
+			<if test="usedate!=null">and  USEDATE=#{usedate}</if>
+			<if test="statuschange!=null">and  STATUSCHANGE=#{statuschange}</if>
+			<if test="changemsg!=null">and  CHANGEMSG=#{changemsg}</if>
+						
+	    </trim>
+		</where>
+	</select>
+	
+	
+	<update id="updateUselogByKey" parameterType="com.itbs.persistence.entity.Uselog">
+		update uselog 		
+		<set>
+		<trim suffixOverrides="," suffix="">
+								
+			<if test="resourceid!=null"> RESOURCEID=#{resourceid}, </if>					
+			<if test="usedate!=null"> USEDATE=#{usedate}, </if>					
+			<if test="statuschange!=null"> STATUSCHANGE=#{statuschange}, </if>					
+			<if test="changemsg!=null"> CHANGEMSG=#{changemsg}, </if>		 
+	   </trim>
+	   </set>		
+		<where>
+			 ID=#{id} 	
+		</where>
+	</update>	
+	
+	
+	
+	<insert id="insertUselogModel" parameterType="com.itbs.persistence.entity.Uselog">
+		insert  into uselog
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+				<if test="id!=null"> ID, </if>
+				<if test="resourceid!=null"> RESOURCEID, </if>
+				<if test="usedate!=null"> USEDATE, </if>
+				<if test="statuschange!=null"> STATUSCHANGE, </if>
+				<if test="changemsg!=null"> CHANGEMSG, </if>
+				
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+				<if test="id!=null"> #{id}, </if>
+				<if test="resourceid!=null"> #{resourceid}, </if>
+				<if test="usedate!=null"> #{usedate}, </if>
+				<if test="statuschange!=null"> #{statuschange}, </if>
+				<if test="changemsg!=null"> #{changemsg}, </if>
+				
+		</trim>
+	</insert>
+	
+	
+	
+	<insert id="insertUselogMap" parameterType="com.itbs.persistence.entity.Uselog">
+		insert  into uselog
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+				<if test="ID!=null"> ID, </if>
+				<if test="RESOURCEID!=null"> RESOURCEID, </if>
+				<if test="USEDATE!=null"> USEDATE, </if>
+				<if test="STATUSCHANGE!=null"> STATUSCHANGE, </if>
+				<if test="CHANGEMSG!=null"> CHANGEMSG, </if>
+				
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+				<if test="ID!=null"> #{ID}, </if>
+				<if test="RESOURCEID!=null"> #{RESOURCEID}, </if>
+				<if test="USEDATE!=null"> #{USEDATE}, </if>
+				<if test="STATUSCHANGE!=null"> #{STATUSCHANGE}, </if>
+				<if test="CHANGEMSG!=null"> #{CHANGEMSG}, </if>
+				
+		</trim>
+	</insert>
+	
+	
+	
+	<delete id="deleteUselog" parameterType="com.itbs.persistence.entity.Uselog">
+		delete from uselog
+		<where>
+		<trim prefixOverrides="and" prefix="">
+				<if test="id!=null"> and ID=#{id} </if>
+				<if test="resourceid!=null"> and RESOURCEID=#{resourceid} </if>
+				<if test="usedate!=null"> and USEDATE=#{usedate} </if>
+				<if test="statuschange!=null"> and STATUSCHANGE=#{statuschange} </if>
+				<if test="changemsg!=null"> and CHANGEMSG=#{changemsg} </if>
+				
+		</trim>
+		</where>
+	</delete>
+	
+	
+	
+	<delete id="deleteUselogByKey">
+		delete from uselog
+		where ID=#{id}				
+	</delete>
+	
+	
+	
+	<insert id="insertUselogBatch" parameterType="java.util.List">
+		insert  into uselog
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+				ID, 
+				RESOURCEID, 
+				USEDATE, 
+				STATUSCHANGE, 
+				CHANGEMSG, 
+				
+		</trim>
+		values
+		<foreach collection="list" item="item" index="index" separator="," >  
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+                #{item.id},
+		        #{item.resourceid},
+		        #{item.usedate},
+		        #{item.statuschange},
+		        #{item.changemsg},
+				
+		</trim>
+    	</foreach>  
+	</insert>
+	
+</mapper>
