@@ -8,6 +8,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.annotation.MapperScan;
 
 import com.itbs.persistence.entity.Resourcemanage;
+import org.springframework.cloud.openfeign.FeignClient;
 
 @MapperScan
 public interface ResourcemanageMapper {
@@ -22,4 +23,5 @@ public interface ResourcemanageMapper {
 	int insertResourcemanageBatch(List<Resourcemanage> entitys);
 	int deleteResourcemanage(Resourcemanage entity);
 	int deleteResourcemanageByKey( @Param("id") Integer id);
+	List<Resourcemanage> selectResStaEquThr();
 }

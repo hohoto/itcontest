@@ -71,7 +71,6 @@ public class TestData1Controller{
 		resourcemanage.setResourcestatus(status);
 
 		int result = ResourcemanageMapper.updateResourcemanage(resourcemanage);
-		if()
 
 
 		map.put("result",result);
