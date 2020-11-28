@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itbs.persistence.mapper.TBasicSkuMapper">
+  <resultMap id="BaseResultMap" type="com.itbs.persistence.entity.TBasicSku">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="SKU_ID" jdbcType="INTEGER" property="skuId" />
+    <result column="SKU_CODE" jdbcType="VARCHAR" property="skuCode" />
+    <result column="SKU_DESC" jdbcType="VARCHAR" property="skuDesc" />
+    <result column="SKU_DETAIL" jdbcType="OTHER" property="skuDetail" />
+    <result column="SPU_ID" jdbcType="INTEGER" property="spuId" />
+    <result column="SKU_OTHER" jdbcType="OTHER" property="skuOther" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, SKU_ID, SKU_CODE, SKU_DESC, SKU_DETAIL, SPU_ID, SKU_OTHER
+  </sql>
+  <select id="selectByExample" parameterType="com.itbs.persistence.entity.TBasicSkuExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from t_basic_sku
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_basic_sku
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_basic_sku
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.itbs.persistence.entity.TBasicSkuExample">
+    delete from t_basic_sku
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.itbs.persistence.entity.TBasicSku">
+    insert into t_basic_sku (ID, SKU_ID, SKU_CODE, 
+      SKU_DESC, SKU_DETAIL, SPU_ID, 
+      SKU_OTHER)
+    values (#{id,jdbcType=INTEGER}, #{skuId,jdbcType=INTEGER}, #{skuCode,jdbcType=VARCHAR}, 
+      #{skuDesc,jdbcType=VARCHAR}, #{skuDetail,jdbcType=OTHER}, #{spuId,jdbcType=INTEGER}, 
+      #{skuOther,jdbcType=OTHER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.itbs.persistence.entity.TBasicSku">
+    insert into t_basic_sku
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="skuId != null">
+        SKU_ID,
+      </if>
+      <if test="skuCode != null">
+        SKU_CODE,
+      </if>
+      <if test="skuDesc != null">
+        SKU_DESC,
+      </if>
+      <if test="skuDetail != null">
+        SKU_DETAIL,
+      </if>
+      <if test="spuId != null">
+        SPU_ID,
+      </if>
+      <if test="skuOther != null">
+        SKU_OTHER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="skuId != null">
+        #{skuId,jdbcType=INTEGER},
+      </if>
+      <if test="skuCode != null">
+        #{skuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="skuDesc != null">
+        #{skuDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="skuDetail != null">
+        #{skuDetail,jdbcType=OTHER},
+      </if>
+      <if test="spuId != null">
+        #{spuId,jdbcType=INTEGER},
+      </if>
+      <if test="skuOther != null">
+        #{skuOther,jdbcType=OTHER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.itbs.persistence.entity.TBasicSkuExample" resultType="java.lang.Long">
+    select count(*) from t_basic_sku
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_basic_sku
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.skuId != null">
+        SKU_ID = #{record.skuId,jdbcType=INTEGER},
+      </if>
+      <if test="record.skuCode != null">
+        SKU_CODE = #{record.skuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.skuDesc != null">
+        SKU_DESC = #{record.skuDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.skuDetail != null">
+        SKU_DETAIL = #{record.skuDetail,jdbcType=OTHER},
+      </if>
+      <if test="record.spuId != null">
+        SPU_ID = #{record.spuId,jdbcType=INTEGER},
+      </if>
+      <if test="record.skuOther != null">
+        SKU_OTHER = #{record.skuOther,jdbcType=OTHER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_basic_sku
+    set ID = #{record.id,jdbcType=INTEGER},
+      SKU_ID = #{record.skuId,jdbcType=INTEGER},
+      SKU_CODE = #{record.skuCode,jdbcType=VARCHAR},
+      SKU_DESC = #{record.skuDesc,jdbcType=VARCHAR},
+      SKU_DETAIL = #{record.skuDetail,jdbcType=OTHER},
+      SPU_ID = #{record.spuId,jdbcType=INTEGER},
+      SKU_OTHER = #{record.skuOther,jdbcType=OTHER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itbs.persistence.entity.TBasicSku">
+    update t_basic_sku
+    <set>
+      <if test="skuId != null">
+        SKU_ID = #{skuId,jdbcType=INTEGER},
+      </if>
+      <if test="skuCode != null">
+        SKU_CODE = #{skuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="skuDesc != null">
+        SKU_DESC = #{skuDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="skuDetail != null">
+        SKU_DETAIL = #{skuDetail,jdbcType=OTHER},
+      </if>
+      <if test="spuId != null">
+        SPU_ID = #{spuId,jdbcType=INTEGER},
+      </if>
+      <if test="skuOther != null">
+        SKU_OTHER = #{skuOther,jdbcType=OTHER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itbs.persistence.entity.TBasicSku">
+    update t_basic_sku
+    set SKU_ID = #{skuId,jdbcType=INTEGER},
+      SKU_CODE = #{skuCode,jdbcType=VARCHAR},
+      SKU_DESC = #{skuDesc,jdbcType=VARCHAR},
+      SKU_DETAIL = #{skuDetail,jdbcType=OTHER},
+      SPU_ID = #{spuId,jdbcType=INTEGER},
+      SKU_OTHER = #{skuOther,jdbcType=OTHER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

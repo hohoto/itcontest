@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itbs.persistence.mapper.InsertDataMapper">
+    <resultMap type="com.itbs.persistence.entity.Resourcemanage" id="Resourcemanage">
+        <result property="resourceid" column="RESOURCEID" />
+        <result property="resourcename" column="RESOURCENAME" />
+        <result property="orivalue" column="ORIVALUE" />
+        <result property="limityear" column="LIMITYEAR" />
+        <result property="resourcestatus" column="RESOURCESTATUS" />
+        <result property="resourcetype" column="RESOURCETYPE" />
+    </resultMap>
+
+
+    <insert id="insertData" parameterType="com.itbs.persistence.entity.Resourcemanage">
+        insert  into resourcemanage
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="resourceid!=null"> RESOURCEID, </if>
+            <if test="resourcename!=null"> RESOURCENAME, </if>
+            <if test="orivalue!=null"> ORIVALUE, </if>
+            <if test="limityear!=null"> LIMITYEAR, </if>
+            <if test="resourcestatus!=null"> RESOURCESTATUS, </if>
+            <if test="resourcetype!=null"> RESOURCETYPE, </if>
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="resourceid!=null"> #{resourceid}, </if>
+            <if test="resourcename!=null"> #{resourcename}, </if>
+            <if test="orivalue!=null"> #{orivalue}, </if>
+            <if test="limityear!=null"> #{limityear}, </if>
+            <if test="resourcestatus!=null"> #{resourcestatus}, </if>
+            <if test="resourcetype!=null"> #{resourcetype}, </if>
+        </trim>
+    </insert>
+
+</mapper>

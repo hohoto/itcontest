@@ -339,5 +339,12 @@
 		</trim>
     	</foreach>  
 	</insert>
+
+	<select id="selectResStaEquThr" resultType="java.util.List">
+   		select *
+    		from resourcemanage
+   		where
+      		resourcestatus like  "3%"
+	</select>
 	
 </mapper>
